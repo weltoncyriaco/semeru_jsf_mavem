@@ -24,7 +24,7 @@ public class TipoEndereco implements Serializable{
     @GeneratedValue
     @Column(name = "IdTipoEndereco", nullable = false)
     private Integer idTipoEndereco;
-    @Column(name = "DescricaoTipoEndereco", nullable = false, unique = true, length = 35)
+    @Column(name = "DescricaoTipoEndereco", nullable = false, length = 35)
     private String descricaoTipoEndereco;
 
     @OneToMany(mappedBy = "tipoendereco", fetch = FetchType.LAZY)
