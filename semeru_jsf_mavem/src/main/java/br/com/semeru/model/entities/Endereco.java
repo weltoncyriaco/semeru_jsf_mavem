@@ -44,8 +44,8 @@ public class Endereco implements Serializable{
     
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @ForeignKey(name = "EnderecoTipoLogradouro")
-    @JoinColumn(name = "idEnderecoTipoLogradouro", referencedColumnName = "idEnderecoTipoLogradouro")
-    private TipoLogradouro tipoLogradouro;
+    @JoinColumn(name = "IdTipoLogradouro", referencedColumnName = "IdTipoLogradouro")
+    private TipoLogradouro tipologradouro;
     
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @ForeignKey(name = "EnderecoCidade")
@@ -61,17 +61,13 @@ public class Endereco implements Serializable{
     @ForeignKey(name = "EnderecoTipoEndereco")
     @JoinColumn(name = "IdTipoEndereco", referencedColumnName = "IdTipoEndereco")
     private TipoEndereco tipoendereco;
-   
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @ForeignKey(name = "EnderecoTipoLogradouro")
-    @JoinColumn(name = "IdTipoLogradouro", referencedColumnName = "IdTipoLogradouro")
-    private TipoLogradouro tipoEndereco;
+
 
     public Endereco() {
         this.cidade = new Cidade();
         this.estado = new Estado();
-        this.tipoLogradouro = new TipoLogradouro();
-        this.tipoEndereco = new TipoLogradouro();
+        this.tipologradouro = new TipoLogradouro();
+        this.tipoendereco = new TipoEndereco();
         this.pessoa = new Pessoa();
     }
     
@@ -131,12 +127,12 @@ public class Endereco implements Serializable{
         this.pessoa = pessoa;
     }
 
-    public TipoLogradouro getTipoLogradouro() {
-        return tipoLogradouro;
+    public TipoLogradouro getTipologradouro() {
+        return tipologradouro;
     }
 
-    public void setTipoLogradouro(TipoLogradouro tipoLogradouro) {
-        this.tipoLogradouro = tipoLogradouro;
+    public void setTipologradouro(TipoLogradouro tipologradouro) {
+        this.tipologradouro = tipologradouro;
     }
 
     public Cidade getCidade() {
@@ -162,15 +158,6 @@ public class Endereco implements Serializable{
     public void setTipoendereco(TipoEndereco tipoendereco) {
         this.tipoendereco = tipoendereco;
     }
-
-    public TipoLogradouro getTipoEndereco() {
-        return tipoEndereco;
-    }
-
-    public void setTipoEndereco(TipoLogradouro tipoEndereco) {
-        this.tipoEndereco = tipoEndereco;
-    }
-
    
 
     @Override
